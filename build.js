@@ -14,11 +14,13 @@ function fail(msg, detail) {
   process.exit(1);
 }
 
-function replaceOnce(text, from, to, label) {
+// `count` (default 1) adalah jumlah kecocokan yang DIHARAPKAN. Kalau meleset, build gagal —
+// itu memaksa patch ditinjau ulang saat source berubah, bukan diam-diam meleset target.
+function applyPatch(text, { from, to, count = 1, name }) {
   const n = text.split(from).length - 1;
-  if (n !== 1) {
+  if (n !== count) {
     fail(
-      `patch "${label}" mencocokkan ${n} lokasi, harus tepat 1.`,
+      `patch "${name}" mencocokkan ${n} lokasi, harus tepat ${count}.`,
       'anchor: ' + from.slice(0, 140) + (from.length > 140 ? ' …' : '')
     );
   }
@@ -49,11 +51,11 @@ try {
 // itu tanda konvensi escaping exporter berubah dan patch tidak lagi bisa dipercaya.
 if (encode(html) !== raw) fail('round-trip template tidak byte-exact; konvensi escaping exporter berubah.');
 
-const patches = require('./content-patches');
-for (const p of patches) html = replaceOnce(html, p.from, p.to, p.name);
+const patches = [...require('./content-patches'), ...require('./theme-patches')];
+for (const p of patches) html = applyPatch(html, p);
 
 let out = src.replace(TEMPLATE_RE, (_, open, __, close) => open + lead + encode(html) + trail + close);
-out = replaceOnce(out, TITLE_FROM, TITLE_TO, 'title');
+out = applyPatch(out, { name: 'title', from: TITLE_FROM, to: TITLE_TO });
 
 fs.writeFileSync(OUT, out);
 console.log(
