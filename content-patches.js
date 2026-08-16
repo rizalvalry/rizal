@@ -47,9 +47,9 @@ module.exports = [
       'drone imaging systems, distributed microservices and cloud-native AI pipelines at ' +
       `<span style="color:${A};">PT Berlian Sistem Informasi</span>.`,
     to:
-      'Master developer and solution architect — a decade of shipping production platforms across ' +
-      'web, internal applications, IoT, SaaS and cloud infrastructure, in whatever language or ' +
-      'framework the problem actually calls for.',
+      'Web-technology expert with 10+ years across web, mobile, IoT, cloud and AI — and the owner ' +
+      `of ${link('https://rafancloud.com', 'rafancloud.com')}, an IT consultancy I have built and ` +
+      'grown since 2017.',
   },
 
   {
@@ -59,14 +59,15 @@ module.exports = [
       'management, penetration &amp; performance testing and API architecture, with leadership as ' +
       'CTO, Tech Lead and business owner.',
     to:
-      `Founder and owner of ${link('https://rafancloud.com', 'rafancloud.com')} — the independent ` +
-      'IT consultancy I have grown since 2017 to 21 clients I still serve today, winning and ' +
-      'keeping each engagement myself, from first outreach and technical discovery through ' +
-      'architecture, delivery and long-term support.' +
+      'Twenty-one clients earned and kept from 2017 to today, across a wide spread of industries ' +
+      'and sectors. For each of them I have delivered websites, internal applications, IoT ' +
+      'systems, SaaS products and the infrastructure underneath — choosing the language and ' +
+      'framework that fits the problem rather than the one I happen to prefer.' +
       '</p>\n' +
       '    <p data-reveal="" style="--d:240ms; font-size:15px; line-height:1.7; color:var(--color-neutral-600); margin:18px 0 0; max-width:720px; text-wrap:pretty;">' +
-      "Bachelor's in Computer Software &amp; Media Applications. Full-stack development, project " +
-      'management, penetration &amp; performance testing and API architecture, with leadership as ' +
-      'CTO, Tech Lead and business owner across a wide range of industries.',
+      'I work as both owner and engineer: architecting and shipping the systems myself, while ' +
+      'handling the client relationships, engagement and networking that keep those partnerships ' +
+      "going. Bachelor's in Computer Software &amp; Media Applications, with leadership " +
+      'experience as CTO and Tech Lead.',
   },
 ];
