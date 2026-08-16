@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SRC = path.join(__dirname, 'Muhamad Rizal CV.html');
+const SRC = path.join(__dirname, process.env.CV_SOURCE || 'Muhamad Rizal - Web CV.html');
 const OUT = path.join(__dirname, 'index.html');
 const FROM = '<title>Bundled Page</title>';
 const TO = '<title>Muhamad Rizal — Curriculum Vitae</title>';
